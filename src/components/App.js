@@ -1,34 +1,24 @@
 import React from 'react'
 import {BrowserRouter, Route, Routes, Link} from "react-router-dom"
-
-const PageOne = () => {
-    return (
-        <div>
-        PageOne
-        {/* <a href="/pagetwo">Navigate to Page2</a> -- Bad Approach Because it'll rerender the whole index.html*/}
-        <Link to="/pagetwo">Navigate to Page2</Link>
-        </div>
-    )
-}
-
-const PageTwo = () => {
-    return (
-        <div>
-        PageTwo
-        {/* <a href="/">Navigate to Page1</a> */}
-        <Link to="/">Navigate to Page1</Link>
-        </div>
-    )
-}
+import Header from './Header'
+import StreamCreate from './streams/StreamCreate'
+import StreamDelete from './streams/StreamDelete'
+import StreamEdit from './streams/StreamEdit'
+import StreamList from './streams/StreamList'
+import StreamShow from './streams/StreamShow'
 
 const App = () => {
     return (
-        <div>
+        <div className="ui container">
             <BrowserRouter>
                 <div>
+                <Header />
                 <Routes>
-                    <Route path="/" element={PageOne()}/>
-                    <Route path="/pagetwo" element={PageTwo()} />
+                    <Route path="/" element={<StreamList />}/>
+                    <Route path="/streams/show" element={<StreamShow />}/>
+                    <Route path="/streams/new" element={<StreamCreate />}/>
+                    <Route path="/streams/edit" element={<StreamEdit/>}/>
+                    <Route path="/streams/delete" element={<StreamDelete/>}/>
                 </Routes>
                 </div>
             </BrowserRouter>
