@@ -3,7 +3,18 @@ import {Field, reduxForm} from "redux-form";
 
 class StreamCreate extends React.Component {
 
-    renderInput({input, label, meta}){
+    renderError({error, touched}) {
+        if(touched && error){
+            return (
+                <div className="ui error message">
+                    <div className="header">{error}</div>
+                </div>
+            );
+        }
+    }
+
+    renderInput = ({input, label, meta}) => {//converting it to render function because 
+                                             //we don't know what the value of this in many instances.
         console.log(meta);
         //return (<input onChange={formProps.input.onChange} value={formProps.input.val}/>);
         //This can be written using shortcut
@@ -11,8 +22,8 @@ class StreamCreate extends React.Component {
         return (
             <div className="field">
                 <label>{label}</label>
-                <input {...input} />
-                <div>{meta.error}</div>
+                <input {...input} autoComplete="off"/>
+                {this.renderError(meta)}
             </div>
         );
     }
