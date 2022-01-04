@@ -31,7 +31,7 @@ export const createStream = formValues => async (dispatch, getState) => {
         type: CREATE_STREAM,
         payload: response.data
     });
-    history.push('/');
+    history.push("/");
     // DO SOME PROGRAMATIC NAVIGATION TO GET THE USER TO HOME ROUTE
 }
 

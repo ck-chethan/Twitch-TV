@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Routes, BrowserRouter, useParams} from "react-router-dom";
+import {Route, Routes, BrowserRouter} from "react-router-dom";
 import history from '../history'; 
 import Header from './Header'
 import StreamCreate from './streams/StreamCreate'
@@ -11,7 +11,7 @@ import StreamShow from './streams/StreamShow'
 const App = () => {
     return (
         <div className="ui container">
-            <BrowserRouter history={history}>
+            <BrowserRouter>
             {/* This History prop will use this history instead of a default history  */}
                 <div>
                 <Header />
