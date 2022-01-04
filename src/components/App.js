@@ -11,7 +11,7 @@ import StreamShow from './streams/StreamShow'
 const App = () => {
     return (
         <div className="ui container">
-            <BrowserRouter>
+            <BrowserRouter history={history}>
             {/* This History prop will use this history instead of a default history  */}
                 <div>
                 <Header />
