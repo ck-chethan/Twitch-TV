@@ -1,9 +1,8 @@
 import React from 'react'
-import {Route, Routes, BrowserRouter} from "react-router-dom";
+import {Route, Routes, BrowserRouter, unstable_HistoryRouter as HistoryRouter} from "react-router-dom";
 import history from '../history'; 
 import Header from './Header'
 import StreamCreate from './streams/StreamCreate'
-import StreamDelete from './streams/StreamDelete'
 import StreamIssue from './streams/StreamIssue';
 import StreamList from './streams/StreamList'
 import StreamShow from './streams/StreamShow'
@@ -11,7 +10,7 @@ import StreamShow from './streams/StreamShow'
 const App = () => {
     return (
         <div className="ui container">
-            <BrowserRouter history={history}>
+            <HistoryRouter history={history}>
             {/* This History prop will use this history instead of a default history  */}
                 <div>
                 <Header />
@@ -19,15 +18,15 @@ const App = () => {
                     <Route path="/" element={<StreamList />}/>
                     <Route path="/streams/show" element={<StreamShow />}/>
                     <Route path="/streams/new" element={<StreamCreate />}/>
-                    <Route path="/streams/edit/:id" element={<StreamIssue />}/>
+                    <Route path="/streams/edit/:id" element={<StreamIssue stream='edit'/>}/>
                     {/* <Route path="/streams/edit/:id" children={({ match }) => (
                         match ? ( <StreamEdit match={match} />) : ( 
                         <StreamList />
                         ))}/> */}
-                    <Route path="/streams/delete" element={<StreamDelete/>}/>
+                    <Route path="/streams/delete/:id" element={<StreamIssue stream='delete'/>}/>
                 </Routes>
                 </div>
-            </BrowserRouter>
+            </HistoryRouter>
         </div>
     )
 }
