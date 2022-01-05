@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Routes, BrowserRouter, unstable_HistoryRouter as HistoryRouter} from "react-router-dom";
+import {Route, Routes, unstable_HistoryRouter as HistoryRouter} from "react-router-dom";
 import history from '../history'; 
 import Header from './Header'
 import StreamCreate from './streams/StreamCreate'
@@ -16,7 +16,6 @@ const App = () => {
                 <Header />
                 <Routes>
                     <Route path="/" element={<StreamList />}/>
-                    <Route path="/streams/show" element={<StreamShow />}/>
                     <Route path="/streams/new" element={<StreamCreate />}/>
                     <Route path="/streams/edit/:id" element={<StreamIssue stream='edit'/>}/>
                     {/* <Route path="/streams/edit/:id" children={({ match }) => (
@@ -24,6 +23,7 @@ const App = () => {
                         <StreamList />
                         ))}/> */}
                     <Route path="/streams/delete/:id" element={<StreamIssue stream='delete'/>}/>
+                    <Route path="/streams/:id" element={<StreamIssue stream='show'/>}/>
                 </Routes>
                 </div>
             </HistoryRouter>

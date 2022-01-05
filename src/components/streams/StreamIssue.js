@@ -2,6 +2,7 @@ import React from 'react'
 import StreamEdit from './StreamEdit'
 import { useParams } from 'react-router-dom'
 import StreamDelete from './StreamDelete';
+import StreamShow from './StreamShow';
 
 const StreamIssue = ({stream}) => {
     let {id} = useParams();
@@ -16,6 +17,14 @@ const StreamIssue = ({stream}) => {
         return (
             <div>
                 <StreamEdit id={id}/>
+            </div>
+        )
+    }
+    if(stream === 'show'){
+        console.log(id);
+        return (
+            <div>
+                <StreamShow id={id}/>
             </div>
         )
     }
