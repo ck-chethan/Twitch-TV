@@ -21,7 +21,6 @@ const StreamIssue = ({stream}) => {
         )
     }
     if(stream === 'show'){
-        console.log(id);
         return (
             <div>
                 <StreamShow id={id}/>
